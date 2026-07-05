@@ -131,42 +131,27 @@ export default function DashboardWrapper() {
   const handleWipeTotal = async () => {
     setWiping(true);
     try {
-      if (wipeTodo) {
-        const { error } = await supabase.rpc('wipe_produccion_total');
-        if (error) throw error;
-        mostrarMensaje('success', '¡Wipe total completado con éxito! La base de datos está limpia.');
-      } else {
-        if (wipeAccesos) {
-          const { error: err1 } = await supabase.from('bitacora_accesos').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (err1) throw err1;
-          const { error: err2 } = await supabase.from('vehiculos_acceso').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (err2) throw err2;
-          const { error: err3 } = await supabase.from('equipos_acceso').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (err3) throw err3;
-        }
-        if (wipeNovedades) {
-          const { error: err1 } = await supabase.from('novedades').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (err1) throw err1;
-          const { error: err2 } = await supabase.from('turnos').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (err2) throw err2;
-        }
-        if (wipeChats) {
-          const { error } = await supabase.from('mensajes').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (error) throw error;
-        }
-        if (wipeAutorizaciones) {
-          const { error } = await supabase.from('autorizaciones_salida').delete().neq('id', '00000000-0000-0000-0000-000000000000');
-          if (error) throw error;
-        }
-        if (wipeClientes) {
-          const { error: err1 } = await supabase.from('instituciones').delete().neq('slug', 'demo');
-          if (err1) throw err1;
-          const { error: err2 } = await supabase.from('usuarios').delete().neq('rol', 'superadmin');
-          if (err2) throw err2;
-        }
-        mostrarMensaje('success', '¡Wipe selectivo por secciones completado con éxito!');
+      const response = await fetch('/api/wipe-produccion', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          wipeTodo,
+          wipeAccesos,
+          wipeNovedades,
+          wipeChats,
+          wipeAutorizaciones,
+          wipeClientes,
+        }),
+      });
+
+      const resData = await response.json();
+      if (!response.ok) {
+        throw new Error(resData.error || 'Error al ejecutar el wipe.');
       }
 
+      mostrarMensaje('success', resData.message || 'Wipe ejecutado con éxito.');
       setShowWipeModal(false);
       setTimeout(() => {
         cargarInstitucionesGlobales();
