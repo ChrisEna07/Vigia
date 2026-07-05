@@ -1,0 +1,35 @@
+---
+import Sidebar from '../components/layout/Sidebar';
+import BannerAnuncios from '../components/layout/BannerAnuncios';
+import '../styles/global.css';
+
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vigia | Panel</title>
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      } else {
+        document.documentElement.classList.remove('light');
+      }
+    </script>
+  </head>
+  <body class="h-screen bg-surface text-text-primary font-sans overflow-hidden">
+    <div class="flex h-full">
+      <Sidebar client:load currentPath={currentPath} />
+      <div class="flex-1 flex flex-col overflow-hidden min-w-0">
+        <BannerAnuncios client:load />
+        <main class="flex-1 overflow-y-auto p-4 md:p-6 pt-6">
+          <slot />
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  /* Default is dark theme */
+  --surface-color: #0B0E14;
+  --surface-card-color: #14181F;
+  --surface-elevated-color: #1C2230;
+  --surface-border-color: #2A3346;
+  --text-primary-color: #F8FAFC;       /* Off-white for high contrast */
+  --text-secondary-color: #E2E8F0;     /* Light slate for readable descriptions */
+  --text-muted-color: #94A3B8;         /* Medium slate for secondary labels */
+  --accent-color: #22C55E;
+  --accent-bright-color: #4ADE80;
+}
+
+:root.light {
+  /* Light theme */
+  --surface-color: #F8FAFC;
+  --surface-card-color: #FFFFFF;
+  --surface-elevated-color: #F1F5F9;
+  --surface-border-color: #CBD5E1;     /* Darker border for structure */
+  --text-primary-color: #0F172A;       /* Near black for primary headers */
+  --text-secondary-color: #1E293B;     /* Dark slate for high legibility body */
+  --text-muted-color: #475569;         /* Muted slate with sufficient contrast */
+  --accent-color: #16A34A;
+  --accent-bright-color: #22C55E;
+}
+
+@theme {
+  --color-surface: var(--surface-color);
+  --color-surface-card: var(--surface-card-color);
+  --color-surface-elevated: var(--surface-elevated-color);
+  --color-surface-border: var(--surface-border-color);
+  --color-accent: var(--accent-color);
+  --color-accent-bright: var(--accent-bright-color);
+  --color-accent-dim: #16A34A;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  --color-text-primary: var(--text-primary-color);
+  --color-text-secondary: var(--text-secondary-color);
+  --color-text-muted: var(--text-muted-color);
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Premium animations */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ping-slow {
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%       { transform: scale(1.5); opacity: 0; }
+}
+
+.animate-fade-in  { animation: fade-in  0.25s ease-out both; }
+.animate-ping-slow { animation: ping-slow 2s ease-in-out infinite; }
+

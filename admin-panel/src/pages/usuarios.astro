@@ -1,0 +1,14 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import GestorUsuarios from '../components/usuarios/GestorUsuarios';
+---
+
+<DashboardLayout>
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-semibold text-text-primary">Usuarios</h2>
+      <p class="text-sm text-text-secondary">Gestiona los usuarios de tu institución</p>
+    </div>
+    <GestorUsuarios client:load />
+  </div>
+</DashboardLayout>

@@ -1,0 +1,14 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import GestorModulos from '../components/configuracion/GestorModulos';
+---
+
+<DashboardLayout>
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-semibold text-text-primary">Configuración</h2>
+      <p class="text-sm text-text-secondary">Activa o desactiva los módulos de registro disponibles</p>
+    </div>
+    <GestorModulos client:load />
+  </div>
+</DashboardLayout>

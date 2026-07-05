@@ -1,0 +1,41 @@
+# Flutter
+build/
+.vscode/
+.idea/
+*.iml
+*.lock
+*.log
+*.swp
+.packages
+.pub-cache/
+.pub/
+.flutter-plugins
+.flutter-plugins-dependencies
+packages/
+.dart_tool/
+
+# Android
+android/app/build/
+android/.gradle/
+android/local.properties
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+# Web
+web/build/
+
+# Env
+.env
+.env.*
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Supabase keys in Dart config
+lib/core/config/supabase_config.dart

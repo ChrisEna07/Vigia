@@ -1,0 +1,15 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import GestorAutorizaciones from '../components/autorizaciones/GestorAutorizaciones';
+---
+
+<DashboardLayout>
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-semibold text-text-primary">Autorizaciones de Salida</h2>
+      <p class="text-sm text-text-secondary">Gestiona los permisos especiales para la salida de portátiles y herramientas de las instalaciones</p>
+    </div>
+
+    <GestorAutorizaciones client:load />
+  </div>
+</DashboardLayout>

@@ -1,0 +1,10 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import GestorSoporte from '../components/soporte/GestorSoporte';
+---
+
+<DashboardLayout>
+  <div class="space-y-6">
+    <GestorSoporte client:load />
+  </div>
+</DashboardLayout>

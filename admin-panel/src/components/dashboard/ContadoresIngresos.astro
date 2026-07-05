@@ -1,0 +1,13 @@
+---
+import Card from '../ui/Card.astro';
+
+const stats = [
+  { title: 'Ingresos hoy', value: '—', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6', accent: 'green' as const },
+  { title: 'Salidas hoy', value: '—', icon: 'M13 17h8m0 0V9m0 8l-8-8-4 4-6-6', accent: 'red' as const },
+  { title: 'En instalaciones', value: '—', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z', accent: 'blue' as const },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  {stats.map((s) => <Card {...s} />)}
+</div>

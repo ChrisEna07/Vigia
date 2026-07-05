@@ -1,0 +1,17 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import ChatAdmin from '../components/chat/ChatAdmin';
+---
+
+<DashboardLayout>
+  <div class="space-y-6 h-[calc(100vh-100px)] flex flex-col">
+    <div>
+      <h2 class="text-xl font-semibold text-text-primary">Mensajería en Vivo</h2>
+      <p class="text-sm text-text-secondary">Chat en tiempo real con los vigilantes en turno.</p>
+    </div>
+
+    <div class="flex-1 min-h-0">
+      <ChatAdmin client:load />
+    </div>
+  </div>
+</DashboardLayout>

@@ -1,0 +1,14 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import ListaAccesos from '../components/accesos/ListaAccesos';
+---
+
+<DashboardLayout>
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-semibold text-text-primary">Accesos</h2>
+      <p class="text-sm text-text-secondary">Historial completo de ingresos y salidas</p>
+    </div>
+    <ListaAccesos client:load />
+  </div>
+</DashboardLayout>

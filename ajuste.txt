@@ -1,0 +1,23 @@
+para el ejecutable offline, agrega una función donde pueda ingresar como super admin con la clave ChrizDev07 y poder crearle un cuenta al cliente con la que pueda ingresar ya que al estar offline no tendrá acceso a la base de datos, el frame enbuido de dockdockgo no funciona aprece una mensaje de conexión rechazada, en la app móvil al darle terminar turno antes del tiempo de salida aun no pide motivos de retiro anticipidado, permite que al generar el pdf de conxion de crendeciales la app analice la url de conexión y de esa url exactamente para que al pasar la app a producción no de la de localhost,
+
+
+
+
+
+
+
+
+
+
+(Versión de Escritorio Autónoma (Electron .exe Wrapper)
+Agregamos el archivo 
+electron-main.cjs
+ y actualizamos 
+package.json
+ para soportar la ejecución del panel web de forma local como aplicación de escritorio standalone para PC.)
+
+bash# Instala electron-builder (si no lo tienes)
+npm install electron-builder --save-dev
+
+# Genera el ejecutable .exe
+npm run dist

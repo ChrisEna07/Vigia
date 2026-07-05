@@ -1,0 +1,15 @@
+---
+import DashboardLayout from '../layouts/DashboardLayout.astro';
+import DashboardWrapper from '../components/dashboard/DashboardWrapper';
+---
+
+<DashboardLayout>
+  <div class="space-y-6">
+    <div>
+      <h2 class="text-xl font-semibold text-text-primary">Dashboard</h2>
+      <p class="text-sm text-text-secondary">Resumen e indicadores clave de control</p>
+    </div>
+
+    <DashboardWrapper client:load />
+  </div>
+</DashboardLayout>
